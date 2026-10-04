@@ -66,13 +66,13 @@ ike preflight
 Debian / Ubuntu / RHEL 系（有 sudo）：
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/ike-sh/Xray-OneClick/main/scripts/bootstrap.sh | sudo sh
+curl -fsSL https://raw.githubusercontent.com/wuredi002/Xray-OneClick/main/scripts/bootstrap.sh | sudo sh
 ```
 
 Alpine 或已是 root：
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/ike-sh/Xray-OneClick/main/scripts/bootstrap.sh | sh
+curl -fsSL https://raw.githubusercontent.com/wuredi002/Xray-OneClick/main/scripts/bootstrap.sh | sh
 ```
 
 > 说明：Alpine 默认没有 bash 与 sudo。请直接以 root 运行 `| sh`（不要加 sudo）；如系统有 `wget` 没 `curl`，也可用 `wget -qO- <url> | sh`。
@@ -80,7 +80,7 @@ curl -fsSL https://raw.githubusercontent.com/ike-sh/Xray-OneClick/main/scripts/b
 或传统方式：
 
 ```bash
-curl -fsSL -o /root/install.sh https://raw.githubusercontent.com/ike-sh/Xray-OneClick/main/install.sh
+curl -fsSL -o /root/install.sh https://raw.githubusercontent.com/wuredi002/Xray-OneClick/main/install.sh
 chmod +x /root/install.sh
 bash /root/install.sh
 ```
@@ -113,7 +113,7 @@ ike doctor all
 
 ```bash
 export XRAY_GITHUB_MIRRORS="https://gh.llkk.cc/,https://gh.ddlc.top/,https://gh-proxy.com/,https://ghproxy.net/"
-curl -fsSL -o /root/install.sh https://raw.githubusercontent.com/ike-sh/Xray-OneClick/main/install.sh
+curl -fsSL -o /root/install.sh https://raw.githubusercontent.com/wuredi002/Xray-OneClick/main/install.sh
 chmod +x /root/install.sh
 bash /root/install.sh
 ```
