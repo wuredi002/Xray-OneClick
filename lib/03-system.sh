@@ -40,25 +40,6 @@ install_dependencies() {
     esac
 }
 
-enable_bbr() {
-    [[ "$OS_TYPE" == "alpine" ]] && return 0
-    command -v sysctl >/dev/null 2>&1 || return 0
-
-    if [[ "$(sysctl -n net.ipv4.tcp_congestion_control 2>/dev/null)" == "bbr" ]]; then
-        return 0
-    fi
-
-    info "[系统] 尝试启用 BBR..."
-    if ! cat >/etc/sysctl.d/99-xray-installer-bbr.conf <<EOF
-net.core.default_qdisc=fq
-net.ipv4.tcp_congestion_control=bbr
-EOF
-    then
-        return 1
-    fi
-    sysctl --system >/dev/null 2>&1 || sysctl -p /etc/sysctl.d/99-xray-installer-bbr.conf >/dev/null 2>&1
-}
-
 prepare_system() {
     [[ -n "${OS_TYPE:-}" ]] || check_os
     [[ -n "${XRAY_ASSET:-}" ]] || detect_arch
